@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Turret/WeaponSubmarineStandard.png" type="Texture" id=1]
+
+[node name="Turret" type="Node2D"]
+
+[node name="Bullet" type="Node2D" parent="." index="0"]
+
+position = Vector2( 0.277771, 0.16675 )
+
+[node name="Cannon_cooldown" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Turret_Texture" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0.00112343, -0.0127754 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -5.3363, -6.48222 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="Muzzle" type="Position2D" parent="Turret_Texture" index="0"]
+
+position = Vector2( 15.8804, -0.0277209 )
+scale = Vector2( 0.2612, 0.2612 )
+
+
