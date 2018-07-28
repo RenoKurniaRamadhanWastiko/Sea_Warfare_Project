@@ -12,7 +12,7 @@ func control(delta):
 		target_speed = 0
 		moving = false
 	#velocity
-	liniear_velcoity = Vector2(target_speed,0).rotated(rotation)
+	liniear_velcoity = Vector2(target_speed,0).rotated(global_rotation)
 
 	#trajectory calculation
 func get_distance(current, target):
@@ -27,7 +27,8 @@ func bullet_course_offset(course):
 	return course
 
 func _on_Area_of_impact_body_entered( body ):
-	body.queue_free()
+	if body.has_method("do_damage"):
+		body.do_damage(damage)
 
 func set_target(point):
 	target = bullet_course_offset(point)

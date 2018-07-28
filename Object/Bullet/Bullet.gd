@@ -6,6 +6,7 @@ export(int) var speed = 200
 export(float) var blt_x_offset = 10
 export(float) var blt_y_offset = 10
 export(float) var target_offset = 10
+export(int) var damage = 10
 
 var target  = Vector2()
 var liniear_velcoity = Vector2()
@@ -26,4 +27,7 @@ func control(delta):
 
 func set_target(point):
 	pass
+
+func set_damage(dmg):
+	damage = dmg
 	
