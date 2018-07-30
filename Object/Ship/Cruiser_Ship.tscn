@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Object/Ship/Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Object/Ship/Cruiser_Ship.gd" type="Script" id=2]
+[ext_resource path="res://Object/Turret/Cruiser_Turret.tscn" type="PackedScene" id=3]
+
+[node name="Cruiser_Ship" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "collision" ]
+speed = 20
+hull = 2000
+rotation_speed = 1.1
+acceleration = 10.0
+
+[node name="Body" parent="." index="0"]
+
+position = Vector2( 47.3201, 0.35849 )
+
+[node name="Bow" parent="." index="1"]
+
+position = Vector2( 47.3201, 0.35849 )
+
+[node name="Bow_sec" parent="Bow" index="0"]
+
+polygon = PoolVector2Array( 23.892, -6.74965, 23.892, 7.00384, 41.5197, 6.42271, 48.8807, 5.45415, 62.4405, 0.417664, 48.687, -5.58738, 40.9386, -6.55594 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Mid" parent="." index="2"]
+
+position = Vector2( 47.3201, 0.35849 )
+
+[node name="Mid_sec" parent="Mid" index="0"]
+
+polygon = PoolVector2Array( 19.8241, -7.91191, 19.8241, 7.97239, 10.3322, 8.74724, -19.3056, 9.71579, -32.0905, 9.52208, -32.8654, -8.88047, -20.2741, -9.4616, 9.75108, -8.49305 )
+
+[node name="Aft" parent="." index="3"]
+
+position = Vector2( 47.3201, 0.35849 )
+
+[node name="Aft_sec" parent="Aft" index="0"]
+
+polygon = PoolVector2Array( -61.5346, -7.33078, -61.7283, 7.39126, -51.6553, 8.55353, -36.1584, 8.35982, -36.3522, -8.88047, -51.6553, -8.88047 )
+
+[node name="Collision" parent="." index="4"]
+
+visible = false
+polygon = PoolVector2Array( -13.7189, -7.00098, -13.7189, 8.41392, 42.9218, 10.9233, 95.9778, 7.33846, 108.883, 0.885712, 95.9778, -5.56704, 42.2049, -9.51038 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Turret" parent="." index="5"]
+
+position = Vector2( 47.3201, 0.35849 )
+
+[node name="Cruiser_Turret" parent="Turret" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 23.2792, -0.80512 )
+scale = Vector2( 0.76981, 0.76981 )
+cannon_cooldown = 1
+normalized_accuration = 10.0
+minimum_range = 50
+
+[node name="Cruiser_Turret2" parent="Turret" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -39.9592, 0.814574 )
+rotation = 3.14159
+scale = Vector2( 0.741602, 0.741602 )
+_sections_unfolded = [ "Transform" ]
+cannon_cooldown = 1
+normalized_accuration = 10.0
+minimum_range = 50
+
+

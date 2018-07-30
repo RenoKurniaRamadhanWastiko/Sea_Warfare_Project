@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Object/Turret/Turret.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Object/Turret/Cruiser_Turret.gd" type="Script" id=2]
+[ext_resource path="res://Object/Bullet/Cruiser_Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Turret/WeaponDestroyerStandardGun.png" type="Texture" id=4]
+
+[node name="Cruiser_Turret" instance=ExtResource( 1 )]
+
+position = Vector2( -0.124588, -0.00223541 )
+script = ExtResource( 2 )
+turret_speed = 1.5
+cannon_cooldown = 1.2
+normalized_accuration = 85.1
+minimum_range = 79.0
+bullet = ExtResource( 3 )
+damage = 10
+cross_hair = null
+
+[node name="Turret_Texture" parent="." index="1"]
+
+position = Vector2( 2.11569, 1.01643 )
+texture = ExtResource( 4 )
+offset = Vector2( -7.45087, -7.51143 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Muzzle" parent="Turret_Texture" index="0"]
+
+position = Vector2( 20.0633, -1.96894 )
+scale = Vector2( 0.135687, 0.135687 )
+
+[node name="MuzzleB" type="Position2D" parent="Turret_Texture" index="1"]
+
+position = Vector2( 20.1138, 2.13387 )
+scale = Vector2( 0.135687, 0.135687 )
+
+[connection signal="timeout" from="Cannon_cooldown" to="." method="_on_Cannon_cooldown_timeout"]
+
+
