@@ -29,3 +29,6 @@ func control(delta):
 
 func do_damage(damage):
 	pass
+
+func add_cross_hair(cursor):
+	pass

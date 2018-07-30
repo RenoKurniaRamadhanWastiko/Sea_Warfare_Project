@@ -4,10 +4,11 @@ var can_shoot = true
 var lining_up = false
 var aiming = false
 var cannon_locked = true
-export(int) var damage = 10
-export(PackedScene) var cross_hair
+
+
 
 func control(delta):
+	
 	#toggle aiming
 	if Input.is_action_just_pressed("ui_accept"):
 		if aiming == true:
@@ -29,14 +30,12 @@ func control(delta):
 		#first bullet
 		munition.set_damage(damage)
 		munition.set_accuration(normalized_accuration)
-		munition.set_target(get_global_mouse_position())
 		target_pos = $Turret_Texture/Muzzle.global_position
 		direction = Vector2(1,0).rotated($Turret_Texture.global_rotation)
 		emit_signal('fire',munition,target_pos,direction)
 		#second bullet
 		sec_munition.set_damage(damage)
 		sec_munition.set_accuration(normalized_accuration)
-		sec_munition.set_target(get_global_mouse_position())
 		target_pos = $Turret_Texture/MuzzleB.global_position
 		direction = Vector2(1,0).rotated($Turret_Texture.global_rotation)
 		emit_signal('fire',sec_munition,target_pos,direction)
@@ -59,9 +58,16 @@ func trajectory_correction():
 func aim_turret(delta):
 	#Turret Aiming
 	if aiming:
+		cursor.show()
+		cursor.set_state(false)
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		target_dir = (get_global_mouse_position() - self.global_position).normalized()
 		current_dir = Vector2(1,0).rotated($Turret_Texture.global_rotation)
 		$Turret_Texture.global_rotation = current_dir.linear_interpolate(target_dir,turret_speed*delta).angle()
+	elif not aiming:
+		cursor.hide()
+		cursor.set_state(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func in_range():
 	var distance = abs(global_position.x-get_global_mouse_position().x)+abs(global_position.y-get_global_mouse_position().y)

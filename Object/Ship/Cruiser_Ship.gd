@@ -1,5 +1,9 @@
 extends "res://Object/Ship/Ship.gd"
 
+func _ready():
+	self.scale.x = 2
+	self.scale.y = 2
+
 func control(delta):
 	var body_rot_dir=0
 	#ship rotation
@@ -33,4 +37,7 @@ func control(delta):
 
 func do_damage(damage):
 	print(damage)
+
+func add_cross_hair(cursor):
+	$Cross_hair.add_child(cursor)
 

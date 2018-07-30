@@ -23,9 +23,10 @@ func _physics_process(delta):
 	move_and_slide(liniear_velcoity)
 	pass
 
-func init_bullet(target_pos, target_dir):
+func init_bullet(target_pos, target_dir, unit_target):
 	position = target_pos
 	rotation = target_dir.angle()
+	set_target(unit_target)
 
 func control(delta):
 	pass

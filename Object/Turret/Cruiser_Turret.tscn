@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Object/Turret/Turret.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Object/Turret/Cruiser_Turret.gd" type="Script" id=2]
 [ext_resource path="res://Object/Bullet/Cruiser_Bullet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Turret/WeaponDestroyerStandardGun.png" type="Texture" id=4]
+[ext_resource path="res://Object/Cross Hair/Cross_Hair.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Turret/WeaponDestroyerStandardGun.png" type="Texture" id=5]
 
 [node name="Cruiser_Turret" instance=ExtResource( 1 )]
 
@@ -13,14 +14,14 @@ turret_speed = 1.5
 cannon_cooldown = 1.2
 normalized_accuration = 85.1
 minimum_range = 79.0
-bullet = ExtResource( 3 )
 damage = 10
-cross_hair = null
+bullet = ExtResource( 3 )
+cross_hair = ExtResource( 4 )
 
 [node name="Turret_Texture" parent="." index="1"]
 
 position = Vector2( 2.11569, 1.01643 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( -7.45087, -7.51143 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
